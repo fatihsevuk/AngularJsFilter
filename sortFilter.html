@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<div ng-app="myApp1" ng-controller="myCtrl1">
+
+
+    <p>girdiğin harfe göre liste güncelenecek...</p>
+
+    <input type="text" ng-model="test">
+    <br>
+
+    <table border="1" width="%100">
+        <tr>
+
+            <th ng-click="sirala('ad')">İsim</th>
+            <th ng-click="sirala('ulke')">Ülke</th>
+
+
+
+
+        </tr>
+
+        <tr ng-repeat="x in names| orderBy:siralayici |filter:test">
+            <td>{{x.ad}}</td>
+            <td>{{x.ulke}}</td>
+
+
+
+        </tr>
+
+
+
+    </table>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+    var app=angular.module('myApp1' , []);
+    app.controller('myCtrl1' , function ($scope) {
+        $scope.names=[
+
+        {ad:'ali' , ulke:'ingiltere'},
+        {ad:'john' , ulke:'fransa'},
+        {ad:'chen' , ulke:'china'},
+        {ad:'zeyd' , ulke:'mozambik'},
+        {ad:'james' , ulke:'nepal'},
+        {ad:'mehmet' , ulke:'türkiye'},
+        {ad:'saly' , ulke:'abd'},
+        {ad:'hans' , ulke:'almanya'},
+        {ad:'kadir' , ulke:'kazakistan'},
+        {ad:'can' , ulke:'özbekistan'},
+        {ad:'smith' , ulke:'ekvador'},
+        {ad:'judy' , ulke:'şili'}
+
+
+
+
+                ];
+        
+        $scope.sirala=function (x) {
+            $scope.siralayici=x;
+        }
+    });
+
+</script>
+
+</body>
+</html>

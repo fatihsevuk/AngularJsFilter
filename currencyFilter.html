@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script >
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1>{{fiyat|currency}}</h1>
+
+</div>
+
+
+<script>
+
+    var app=angular.module('myApp' , []);
+    app.controller('myCtrl' , function ($scope) {
+        $scope.fiyat=150;
+
+
+
+
+    });
+
+
+
+</script>
+
+
+
+</body>
+</html>
